@@ -1,0 +1,318 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Teacher Dashboard - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="teacher-dashboard-page">
+
+
+    <div class="header">
+
+        <div class="header-content">
+
+            <div>
+
+                <h1>
+                    RHMC AttendEase
+                </h1>
+
+                <p>
+                    Teacher Dashboard
+                </p>
+
+            </div>
+
+
+            <a
+                href="{% url 'teacher_logout' %}"
+                class="logout-button"
+            >
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="welcome">
+
+            <h2>
+                Welcome, {{ teacher.name }}
+            </h2>
+
+            <p>
+                Manage your subjects and monitor student attendance.
+            </p>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="stats">
+
+
+            <div class="stat-card">
+
+                <h3>
+                    My Subjects
+                </h3>
+
+                <p class="number">
+                    {{ subject_count }}
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    My Students
+                </h3>
+
+                <p class="number">
+                    {{ student_count }}
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Present Today
+                </h3>
+
+                <p class="number">
+                    {{ present_today }}
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Absent Today
+                </h3>
+
+                <p class="number">
+                    {{ absent_today }}
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- SUBJECTS -->
+
+        <div class="section">
+
+            <h2>
+                My Subjects
+            </h2>
+
+
+            {% if subjects %}
+
+                <div class="subject-grid">
+
+
+                    {% for subject in subjects %}
+
+                        <a
+                            href="{% url 'subject_students' subject.id %}"
+                            class="subject-card"
+                        >
+
+                            <div class="subject-code">
+                                {{ subject.subject_code }}
+                            </div>
+
+                            <h3>
+                                {{ subject.subject_name }}
+                            </h3>
+
+                            <p>
+                                Students:
+                                {{ subject.student_count }}
+                            </p>
+
+                            <p>
+                                View students and attendance →
+                            </p>
+
+                        </a>
+
+                    {% endfor %}
+
+
+                </div>
+
+            {% else %}
+
+                <div class="empty">
+
+                    <p>
+                        No subjects have been assigned to you yet.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+        </div>
+
+
+        <!-- ATTENDANCE HISTORY -->
+
+        <div class="section">
+
+            <h2>
+                Attendance History
+            </h2>
+
+            <p>
+                View attendance records for your assigned subjects.
+            </p>
+
+            <a
+                href="{% url 'attendance_history' %}"
+                class="history-button"
+            >
+                View Attendance History
+            </a>
+
+        </div>
+
+
+        <!-- RECENT ATTENDANCE -->
+
+        <div class="section">
+
+            <h2>
+                Recent Attendance
+            </h2>
+
+
+            {% if recent_attendance %}
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Student
+                                </th>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for record in recent_attendance %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ record.date }}
+                                    </td>
+
+                                    <td>
+                                        {{ record.student.name }}
+                                    </td>
+
+                                    <td>
+                                        {{ record.subject.subject_code }}
+                                        -
+                                        {{ record.subject.subject_name }}
+                                    </td>
+
+                                    <td>
+
+                                        {% if record.status == 'Present' %}
+
+                                            <span class="present">
+                                                Present
+                                            </span>
+
+                                        {% else %}
+
+                                            <span class="absent">
+                                                Absent
+                                            </span>
+
+                                        {% endif %}
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="empty">
+
+                    <p>
+                        No attendance records yet.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,4861 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    background: linear-gradient(
+        135deg,
+        #174a7c,
+        #2878bd
+    );
+
+    color: white;
+    padding: 18px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 4px 15px rgba(31, 78, 121, 0.18);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+.brand-text h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.brand-text p {
+    margin: 3px 0 0;
+    font-size: 13px;
+    color: #dcecff;
+}
+
+.logout {
+    background: white;
+    color: #1f5f98;
+
+    text-decoration: none;
+
+    padding: 11px 18px;
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.logout:hover {
+    background: #eaf4ff;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto 50px;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 22px;
+
+    background: #e4f1ff;
+    color: #175a96;
+
+    text-decoration: none;
+
+    padding: 11px 18px;
+
+    border: 1px solid #c7e1fb;
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.back:hover {
+    background: #d6eaff;
+}
+
+/* =========================
+   SUBJECT CARD
+========================= */
+
+.subject-card {
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.10);
+
+    margin-bottom: 28px;
+}
+
+.subject-banner {
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        #1d5f9d,
+        #327fbe
+    );
+
+    color: white;
+
+    padding: 30px 35px;
+
+    overflow: hidden;
+}
+
+.subject-banner::after {
+    content: "🎓";
+
+    position: absolute;
+
+    right: 35px;
+    top: 15px;
+
+    font-size: 95px;
+
+    opacity: 0.13;
+}
+
+.subject-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.subject-icon {
+    width: 64px;
+    height: 64px;
+
+    background: #2388e8;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.subject-title h2 {
+    margin: 0 0 6px;
+    font-size: 30px;
+}
+
+.subject-title p {
+    margin: 0;
+    color: #e5f2ff;
+    font-size: 16px;
+}
+
+/* =========================
+   SUBJECT INFORMATION
+========================= */
+
+.subject-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: 25px 35px;
+
+    gap: 20px;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 10px;
+}
+
+.info-icon {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e5f2ff;
+
+    font-size: 21px;
+}
+
+.info-box:nth-child(2) .info-icon {
+    background: #eee8ff;
+}
+
+.info-box:nth-child(3) .info-icon {
+    background: #def8e8;
+}
+
+.info-text small {
+    display: block;
+
+    color: #668096;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.info-text strong {
+    color: #1e4f7d;
+    font-size: 15px;
+}
+
+.student-number {
+    display: inline-block;
+
+    background: #2477c5;
+    color: white;
+
+    padding: 5px 13px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+}
+
+/* =========================
+   STUDENT TABLE CARD
+========================= */
+
+.table-card {
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 22px;
+}
+
+.table-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.table-heading-icon {
+    width: 50px;
+    height: 50px;
+
+    background: #e5f2ff;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+}
+
+.table-heading h2 {
+    margin: 0;
+
+    color: #214f7d;
+
+    font-size: 26px;
+}
+
+.table-heading p {
+    margin: 4px 0 0;
+
+    color: #70869a;
+
+    font-size: 14px;
+}
+
+.attendance-note {
+    color: #2870a9;
+    font-weight: bold;
+    font-style: italic;
+    text-align: right;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    min-width: 850px;
+
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th {
+    background: #245f96;
+    color: white;
+
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+th:first-child {
+    border-top-left-radius: 12px;
+}
+
+th:last-child {
+    border-top-right-radius: 12px;
+}
+
+td {
+    padding: 16px 15px;
+
+    border-bottom: 1px solid #e3edf5;
+
+    background: white;
+
+    vertical-align: middle;
+}
+
+tbody tr {
+    transition: 0.2s;
+}
+
+tbody tr:hover td {
+    background: #f7fbff;
+}
+
+.student-id {
+    font-weight: bold;
+    color: #275b88;
+}
+
+.student-name {
+    font-weight: bold;
+    color: #244d73;
+}
+
+.student-email {
+    color: #657d91;
+}
+
+/* =========================
+   ATTENDANCE STATUS
+========================= */
+
+.status-present,
+.status-absent,
+.status-not-marked {
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    min-width: 105px;
+
+    text-align: center;
+}
+
+.status-present {
+    color: #16844f;
+    background: #d9f7e5;
+}
+
+.status-absent {
+    color: #d52f48;
+    background: #ffe0e5;
+}
+
+.status-not-marked {
+    color: #718296;
+    background: #eaf0f5;
+}
+
+/* =========================
+   ATTENDANCE BUTTONS
+========================= */
+
+.attendance-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.attendance-actions form {
+    margin: 0;
+}
+
+.attendance-btn {
+    border: none;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    min-width: 90px;
+}
+
+.present-btn {
+    background: #159b63;
+}
+
+.present-btn:hover {
+    background: #0e7e50;
+    transform: translateY(-1px);
+}
+
+.absent-btn {
+    background: #ed3854;
+}
+
+.absent-btn:hover {
+    background: #d72542;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty {
+    text-align: center;
+
+    color: #718296;
+
+    padding: 45px 20px;
+
+    background: #f8fbfe;
+
+    border: 1px dashed #cbdce9;
+
+    border-radius: 12px;
+}
+
+.empty-icon {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.empty h3 {
+    margin: 5px 0 8px;
+
+    color: #315f86;
+}
+
+.empty p {
+    margin: 0;
+}
+
+/* =========================
+   FOOTER NOTE
+========================= */
+
+.footer-note {
+    margin-top: 20px;
+
+    padding: 13px 16px;
+
+    background: #eef7ff;
+
+    border-radius: 10px;
+
+    color: #4c7090;
+
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 850px) {
+
+    .header {
+        padding: 16px 20px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .subject-info {
+        grid-template-columns: 1fr;
+        padding: 20px 25px;
+    }
+
+    .subject-banner {
+        padding: 25px;
+    }
+
+    .table-header {
+        display: block;
+    }
+
+    .attendance-note {
+        text-align: left;
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .brand-text h1 {
+        font-size: 20px;
+    }
+
+    .brand-text p {
+        display: none;
+    }
+
+    .logout {
+        padding: 9px 12px;
+    }
+
+    .subject-title h2 {
+        font-size: 24px;
+    }
+
+    .subject-title p {
+        font-size: 14px;
+    }
+
+    .subject-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+
+    .table-card {
+        padding: 18px;
+    }
+}
+
+/* ==================================================
+   TEACHER DASHBOARD
+================================================== */
+
+.dashboard-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+
+/* =========================
+   DASHBOARD HEADER
+========================= */
+
+.dashboard-page .header {
+    background: linear-gradient(
+        135deg,
+        #174a7c,
+        #2878bd
+    );
+
+    color: white;
+    padding: 18px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 4px 15px rgba(31, 78, 121, 0.18);
+}
+
+.dashboard-page .header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.dashboard-page .logout {
+    background: white;
+    color: #1f5f98;
+
+    text-decoration: none;
+
+    padding: 11px 18px;
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.dashboard-page .logout:hover {
+    background: #eaf4ff;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   DASHBOARD CONTAINER
+========================= */
+
+.dashboard-page .container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+
+/* =========================
+   WELCOME CARD
+========================= */
+
+.dashboard-page .welcome {
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.10);
+
+    margin-bottom: 25px;
+}
+
+.dashboard-page .welcome h2 {
+    margin-top: 0;
+
+    color: #1f5f98;
+
+    font-size: 27px;
+}
+
+.dashboard-page .welcome p {
+    margin-bottom: 0;
+
+    color: #668096;
+}
+
+
+/* =========================
+   STATISTICS
+========================= */
+
+.dashboard-page .stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+.dashboard-page .stat-card {
+    background: white;
+
+    padding: 23px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.08);
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+.dashboard-page .stat-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(31, 78, 121, 0.13);
+}
+
+.dashboard-page .stat-card h3 {
+    color: #1f5f98;
+
+    margin: 0 0 10px;
+
+    font-size: 15px;
+}
+
+.dashboard-page .stat-card p {
+    font-size: 32px;
+
+    font-weight: bold;
+
+    color: #244d73;
+
+    margin: 0;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.dashboard-page .section-title {
+    color: #214f7d;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   SUBJECT CARDS
+========================= */
+
+.dashboard-page .subject-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.09);
+
+    margin-bottom: 20px;
+
+    transition: 0.2s;
+}
+
+.dashboard-page .subject-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 28px rgba(31, 78, 121, 0.13);
+}
+
+.dashboard-page .subject-card h3 {
+    margin-top: 0;
+
+    color: #1f5f98;
+
+    font-size: 23px;
+}
+
+.dashboard-page .subject-card p {
+    color: #5e7487;
+
+    margin: 10px 0;
+}
+
+
+/* =========================
+   STUDENT COUNT
+========================= */
+
+.dashboard-page .student-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.dashboard-page .student-count {
+    display: inline-block;
+
+    background: #e5f2ff;
+
+    color: #1f5f98;
+
+    padding: 6px 13px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   SUBJECT BUTTONS
+========================= */
+
+.dashboard-page .btn,
+.dashboard-page .attendance-btn,
+.dashboard-page .action-btn,
+.dashboard-page .history-btn {
+    display: inline-block;
+
+    background: #1f5f98;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border-radius: 9px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.dashboard-page .btn {
+    margin-top: 15px;
+}
+
+.dashboard-page .attendance-btn {
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+.dashboard-page .btn:hover,
+.dashboard-page .attendance-btn:hover,
+.dashboard-page .action-btn:hover,
+.dashboard-page .history-btn:hover {
+    background: #174a7c;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   DASHBOARD ACTIONS
+========================= */
+
+.dashboard-page .dashboard-actions {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+.dashboard-page .action-btn {
+    margin-top: 0;
+}
+
+
+/* =========================
+   EMPTY SUBJECT MESSAGE
+========================= */
+
+.dashboard-page .empty {
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.08);
+
+    color: #718296;
+}
+
+
+/* =========================
+   RECENT ATTENDANCE
+========================= */
+
+.dashboard-page .recent-section {
+    width: 92%;
+    max-width: 1100px;
+
+    margin: 30px auto 50px;
+
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.dashboard-page .recent-section h2 {
+    color: #214f7d;
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   RECENT ATTENDANCE TABLE
+========================= */
+
+.dashboard-page .table-container {
+    overflow-x: auto;
+}
+
+.dashboard-page .table-container table {
+    width: 100%;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+}
+
+.dashboard-page .table-container th {
+    background: #245f96;
+
+    color: white;
+
+    padding: 14px;
+
+    text-align: left;
+}
+
+.dashboard-page .table-container th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.dashboard-page .table-container th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.dashboard-page .table-container td {
+    padding: 14px;
+
+    border-bottom: 1px solid #e3edf5;
+
+    background: white;
+}
+
+.dashboard-page .table-container tr:hover td {
+    background: #f7fbff;
+}
+
+
+/* =========================
+   ATTENDANCE STATUS COLORS
+========================= */
+
+.dashboard-page .status-present {
+    color: #16844f;
+
+    font-weight: bold;
+}
+
+.dashboard-page .status-absent {
+    color: #d52f48;
+
+    font-weight: bold;
+}
+
+.dashboard-page .no-records {
+    color: #718296;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+
+/* =========================
+   RESPONSIVE DASHBOARD
+========================= */
+
+@media (max-width: 800px) {
+
+    .dashboard-page .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .dashboard-page .header {
+        padding: 16px 20px;
+    }
+
+    .dashboard-page .header h1 {
+        font-size: 20px;
+    }
+
+    .dashboard-page .container {
+        width: 94%;
+    }
+
+    .dashboard-page .recent-section {
+        width: 94%;
+    }
+
+    .dashboard-page .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-page .subject-card {
+        padding: 20px;
+    }
+
+}
+
+/* ==================================================
+   ATTENDANCE HISTORY
+================================================== */
+
+.history-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.history-page .header {
+    background: linear-gradient(
+        135deg,
+        #174a7c,
+        #2878bd
+    );
+
+    color: white;
+    padding: 18px 40px;
+
+    box-shadow: 0 4px 15px rgba(31, 78, 121, 0.18);
+}
+
+.history-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-page .header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.history-page .logout {
+    background: white;
+    color: #1f5f98;
+
+    text-decoration: none;
+
+    padding: 11px 18px;
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.history-page .logout:hover {
+    background: #eaf4ff;
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.history-page .container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto 50px;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.history-page .card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.history-page .card h2 {
+    color: #214f7d;
+
+    margin-top: 0;
+    margin-bottom: 8px;
+
+    font-size: 28px;
+}
+
+.history-page .page-description {
+    color: #70869a;
+
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   TEACHER NAME
+========================= */
+
+.history-page .teacher-name {
+    color: #526b80;
+
+    margin: 20px 0 25px;
+
+    padding: 13px 16px;
+
+    background: #f1f7fd;
+
+    border-radius: 10px;
+
+    border-left: 4px solid #2878bd;
+}
+
+.history-page .teacher-name strong {
+    color: #1f5f98;
+}
+
+
+/* =========================
+   FILTER AREA
+========================= */
+
+.history-page .filter-form {
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 1.2fr auto auto;
+    gap: 18px;
+    align-items: end;
+
+    background: #f4f9ff;
+    border: 1px solid #d7e7f7;
+
+    padding: 24px;
+
+    border-radius: 16px;
+
+    margin-bottom: 28px;
+}
+
+
+.history-page .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.history-page .filter-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+
+.history-page .filter-group input,
+.history-page .filter-group select {
+    width: 100%;
+    height: 48px;
+
+    box-sizing: border-box;
+
+    padding: 0 14px;
+
+    border: 1px solid #c9dced;
+    border-radius: 10px;
+
+    background: white;
+
+    color: #243b53;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.history-page .filter-group input:focus,
+.history-page .filter-group select:focus {
+    border-color: #2b6ca3;
+
+    box-shadow:
+        0 0 0 3px rgba(43, 108, 163, 0.12);
+}
+
+
+.history-page .filter-form button {
+    height: 48px;
+
+    padding: 0 24px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #28679f;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.history-page .filter-form button:hover {
+    background: #1f578b;
+}
+
+
+.history-page .filter-form a {
+    height: 48px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 24px;
+
+    border-radius: 10px;
+
+    background: #e6eef6;
+
+    color: #536b82;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+
+.history-page .filter-form a:hover {
+    background: #dce7f1;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.history-page .history-table-container {
+    overflow-x: auto;
+
+    border-radius: 12px;
+}
+
+.history-page table {
+    width: 100%;
+
+    min-width: 750px;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+}
+
+.history-page th {
+    background: #245f96;
+
+    color: white;
+
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+.history-page th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.history-page th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.history-page td {
+    padding: 15px;
+
+    border-bottom: 1px solid #e3edf5;
+
+    background: white;
+
+    color: #526b80;
+}
+
+.history-page tbody tr:hover td {
+    background: #f7fbff;
+}
+
+.history-page .student-id {
+    font-weight: bold;
+    color: #275b88;
+}
+
+.history-page .student-name {
+    font-weight: bold;
+    color: #244d73;
+}
+
+.history-page .subject-code {
+    font-weight: bold;
+    color: #2870a9;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.history-page .present {
+    display: inline-block;
+
+    background: #d9f7e5;
+
+    color: #16844f;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.history-page .absent {
+    display: inline-block;
+
+    background: #ffe0e5;
+
+    color: #d52f48;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.history-page .empty {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: #718296;
+
+    background: #f8fbfe;
+
+    border: 1px dashed #cbdce9;
+
+    border-radius: 12px;
+}
+
+.history-page .empty-icon {
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.history-page .back {
+    display: inline-block;
+
+    margin-top: 22px;
+
+    background: #1f5f98;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.history-page .back:hover {
+    background: #174a7c;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .history-page .filter-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .history-page .filter-form {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==================================================
+   TEACHER LOGIN
+================================================== */
+
+.login-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+.login-page .login-card {
+    width: 100%;
+    max-width: 430px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(31, 78, 121, 0.12);
+
+    border: 1px solid #e1edf8;
+}
+
+
+.login-page .logo {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+.login-page .logo-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e8f2fc;
+
+    border-radius: 18px;
+
+    font-size: 34px;
+}
+
+
+.login-page .logo h1 {
+    color: #1f4e79;
+
+    margin: 0 0 8px;
+
+    font-size: 28px;
+}
+
+
+.login-page .logo p {
+    color: #718096;
+
+    margin: 0;
+
+    font-size: 15px;
+}
+
+
+.login-page .login-title {
+    color: #243b53;
+
+    margin-bottom: 20px;
+
+    font-size: 20px;
+}
+
+
+.login-page label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+
+    color: #334e68;
+
+    font-size: 14px;
+}
+
+
+.login-page .input-group {
+    margin-bottom: 18px;
+}
+
+
+.login-page input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #c9dced;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #243b53;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.login-page input:focus {
+    border-color: #28679f;
+
+    box-shadow:
+        0 0 0 3px rgba(40, 103, 159, 0.12);
+}
+
+
+.login-page input::placeholder {
+    color: #9aaabd;
+}
+
+
+.login-page button {
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #28679f;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.login-page button:hover {
+    background: #1f578b;
+}
+
+
+.login-page .error {
+    background: #fff0f0;
+
+    color: #c62828;
+
+    border: 1px solid #ffd1d1;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+
+.login-page .login-footer {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #8a9aad;
+
+    font-size: 13px;
+}
+
+
+@media (max-width: 500px) {
+
+    .login-page {
+        padding: 15px;
+    }
+
+    .login-page .login-card {
+        padding: 30px 25px;
+    }
+
+    .login-page .logo h1 {
+        font-size: 24px;
+    }
+
+}
+
+/* ==================================================
+   MANAGEMENT DASHBOARD
+================================================== */
+
+.management-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+
+/* HEADER */
+
+.management-page .header {
+    background: #1f4e79;
+    color: white;
+
+    padding: 20px 4%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.management-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+
+.management-page .logout-button {
+    background: white;
+    color: #1f4e79;
+
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+
+.management-page .logout-button:hover {
+    background: #e8f1f9;
+}
+
+
+/* MAIN CONTAINER */
+
+.management-page .container {
+    width: 92%;
+    max-width: 1150px;
+
+    margin: 30px auto;
+}
+
+
+/* MAIN CARD */
+
+.management-page .card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+
+.management-page .card h2 {
+    color: #1f4e79;
+
+    margin-top: 0;
+
+    margin-bottom: 8px;
+}
+
+
+.management-page .description {
+    color: #718096;
+
+    margin-top: 0;
+
+    margin-bottom: 30px;
+}
+
+
+/* STATISTICS */
+
+.management-page .stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+.management-page .stat-card {
+    background: #f7fbff;
+
+    padding: 22px;
+
+    border-radius: 14px;
+
+    border: 1px solid #dfedf9;
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+
+.management-page .stat-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 18px rgba(31, 78, 121, 0.10);
+}
+
+
+.management-page .stat-card h3 {
+    color: #1f4e79;
+
+    margin: 0 0 10px;
+
+    font-size: 15px;
+}
+
+
+.management-page .stat-card p {
+    font-size: 32px;
+
+    font-weight: bold;
+
+    color: #243b53;
+
+    margin: 0;
+}
+
+
+/* RECENT ATTENDANCE */
+
+.management-page .recent-section {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    border: 1px solid #e1edf8;
+
+    margin-top: 30px;
+}
+
+
+.management-page .recent-section h2 {
+    color: #1f4e79;
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+}
+
+
+.management-page .table-container {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+.management-page table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+.management-page th {
+    background: #1f4e79;
+
+    color: white;
+
+    padding: 13px;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+
+.management-page td {
+    padding: 13px;
+
+    border-bottom: 1px solid #e4eaf0;
+
+    color: #425466;
+}
+
+
+.management-page tbody tr:hover {
+    background: #f5f9fd;
+}
+
+
+.management-page .no-records {
+    color: #8a9aad;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+
+/* MANAGEMENT BUTTONS */
+
+.management-page .buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin-top: 25px;
+}
+
+
+.management-page .management-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 55px;
+
+    background: #28679f;
+
+    color: white;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    padding: 14px 18px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.management-page .management-button:hover {
+    background: #1f578b;
+
+    transform: translateY(-2px);
+}
+
+
+/* BACK BUTTON */
+
+.management-page .back-button {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 11px 18px;
+
+    background: #e6eef6;
+
+    color: #536b82;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+
+.management-page .back-button:hover {
+    background: #dce7f1;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .management-page .stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .management-page .buttons {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .management-page .header {
+        padding: 18px;
+    }
+
+
+    .management-page .header h1 {
+        font-size: 21px;
+    }
+
+
+    .management-page .container {
+        width: 94%;
+    }
+
+
+    .management-page .card {
+        padding: 20px;
+    }
+
+
+    .management-page .stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .management-page .buttons {
+        grid-template-columns: 1fr;
+    }
+
+
+    .management-page .recent-section {
+        padding: 18px;
+    }
+
+}
+
+/* ==================================================
+   TEACHER LIST
+================================================== */
+
+.teacher-list-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+
+/* HEADER */
+
+.teacher-list-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+
+.teacher-list-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.teacher-list-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+
+/* CONTAINER */
+
+.teacher-list-page .container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+
+/* CARD */
+
+.teacher-list-page .card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+
+.teacher-list-page .card h2 {
+    color: #1f4e79;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* ADD BUTTON */
+
+.teacher-list-page .add-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #28679f;
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+    transition: 0.2s;
+}
+
+
+.teacher-list-page .add-button:hover {
+    background: #1f578b;
+
+    transform: translateY(-2px);
+}
+
+
+/* TABLE */
+
+.teacher-list-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.teacher-list-page table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+}
+
+
+.teacher-list-page th {
+    background: #1f4e79;
+
+    color: white;
+
+    padding: 14px;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+
+.teacher-list-page td {
+    padding: 14px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    color: #425466;
+}
+
+
+.teacher-list-page tbody tr:hover {
+    background: #f5f9fd;
+}
+
+
+/* DELETE BUTTON */
+
+.teacher-list-page .delete-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dc3545;
+
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.teacher-list-page .delete-button:hover {
+    background: #b02a37;
+
+    transform: translateY(-1px);
+}
+
+
+/* EMPTY */
+
+.teacher-list-page .empty {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: #7b8a9a;
+}
+
+
+/* BACK BUTTON */
+
+.teacher-list-page .back {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    background: #e6eef6;
+
+    color: #536b82;
+
+    text-decoration: none;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+
+.teacher-list-page .back:hover {
+    background: #dce7f1;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .teacher-list-page .card {
+        padding: 20px;
+    }
+
+
+    .teacher-list-page .container {
+        width: 94%;
+    }
+
+
+    .teacher-list-page th,
+    .teacher-list-page td {
+        white-space: nowrap;
+    }
+
+}
+
+/* ==================================================
+   STUDENT LIST
+================================================== */
+
+.student-list-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+
+/* HEADER */
+
+.student-list-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+
+.student-list-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.student-list-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+
+/* CONTAINER */
+
+.student-list-page .container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+
+/* CARD */
+
+.student-list-page .card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+
+.student-list-page .card h2 {
+    color: #1f4e79;
+
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* ADD BUTTON */
+
+.student-list-page .add-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #28679f;
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+    transition: 0.2s;
+}
+
+
+.student-list-page .add-button:hover {
+    background: #1f578b;
+
+    transform: translateY(-2px);
+}
+
+
+/* TABLE */
+
+.student-list-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+.student-list-page table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin-top: 15px;
+}
+
+
+.student-list-page th {
+    background: #1f4e79;
+
+    color: white;
+
+    padding: 14px;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+
+.student-list-page td {
+    padding: 14px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    color: #425466;
+}
+
+
+.student-list-page tbody tr:hover {
+    background: #f5f9fd;
+}
+
+
+/* DELETE BUTTON */
+
+.student-list-page .delete-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #dc3545;
+
+    color: white;
+
+    padding: 8px 14px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.student-list-page .delete-button:hover {
+    background: #b02a37;
+
+    transform: translateY(-1px);
+}
+
+
+/* EMPTY */
+
+.student-list-page .empty {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: #7b8a9a;
+}
+
+
+/* BACK BUTTON */
+
+.student-list-page .back {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    background: #e6eef6;
+
+    color: #536b82;
+
+    text-decoration: none;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+}
+
+
+.student-list-page .back:hover {
+    background: #dce7f1;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+    .student-list-page .card {
+        padding: 20px;
+    }
+
+
+    .student-list-page .container {
+        width: 94%;
+    }
+
+
+    .student-list-page th,
+    .student-list-page td {
+        white-space: nowrap;
+    }
+
+}
+
+/* ==================================================
+   ADD STUDENT
+================================================== */
+
+.add-student-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.add-student-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.add-student-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.add-student-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.add-student-page .container {
+    width: 92%;
+    max-width: 650px;
+    margin: 40px auto;
+}
+
+.add-student-page .card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.add-student-page .card h2 {
+    color: #1f4e79;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.add-student-page .form-group {
+    margin-bottom: 20px;
+}
+
+.add-student-page label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #334e68;
+}
+
+.add-student-page input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.add-student-page input:focus {
+    border-color: #28679f;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 103, 159, 0.10);
+}
+
+.add-student-page .error {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.add-student-page .error ul {
+    margin: 5px 0 0;
+    padding-left: 20px;
+}
+
+.add-student-page .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.add-student-page .save-button {
+    background: #28679f;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-student-page .save-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.add-student-page .cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    padding: 11px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-student-page .cancel-button:hover {
+    background: #dce7f1;
+}
+
+@media (max-width: 700px) {
+
+    .add-student-page .container {
+        width: 94%;
+    }
+
+    .add-student-page .card {
+        padding: 22px;
+    }
+
+    .add-student-page .buttons {
+        flex-direction: column;
+    }
+
+    .add-student-page .save-button,
+    .add-student-page .cancel-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+/* ==================================================
+   DELETE STUDENT
+================================================== */
+
+.delete-student-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.delete-student-page .container {
+    width: 92%;
+    max-width: 600px;
+    margin: 80px auto;
+}
+
+.delete-student-page .card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+    text-align: center;
+}
+
+.delete-student-page h1 {
+    color: #1f4e79;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.delete-student-page p {
+    color: #5f6c7b;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.delete-student-page .student-name {
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+.delete-student-page .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.delete-student-page .buttons form {
+    margin: 0;
+}
+
+.delete-student-page .delete-button {
+    background: #dc3545;
+    color: white;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-student-page .delete-button:hover {
+    background: #b02a37;
+    transform: translateY(-1px);
+}
+
+.delete-student-page .cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    padding: 11px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.delete-student-page .cancel-button:hover {
+    background: #dce7f1;
+}
+
+@media (max-width: 600px) {
+
+    .delete-student-page .container {
+        width: 94%;
+        margin: 50px auto;
+    }
+
+    .delete-student-page .card {
+        padding: 25px 20px;
+    }
+
+    .delete-student-page .buttons {
+        flex-direction: column;
+    }
+
+    .delete-student-page .buttons form,
+    .delete-student-page .delete-button,
+    .delete-student-page .cancel-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+/* ==================================================
+   SUBJECT LIST
+================================================== */
+
+.subject-list-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.subject-list-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.subject-list-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.subject-list-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.subject-list-page .container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.subject-list-page .card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.subject-list-page .card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #1f4e79;
+}
+
+.subject-list-page .add-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 11px 18px;
+    background: #28679f;
+    color: white;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.subject-list-page .add-button:hover {
+    background: #1f578b;
+    transform: translateY(-2px);
+}
+
+.subject-list-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.subject-list-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.subject-list-page th {
+    background: #1f4e79;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.subject-list-page td {
+    padding: 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #425466;
+}
+
+.subject-list-page tbody tr:hover {
+    background: #f5f9fd;
+}
+
+.subject-list-page .delete-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #dc3545;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.subject-list-page .delete-button:hover {
+    background: #b02a37;
+    transform: translateY(-1px);
+}
+
+.subject-list-page .empty {
+    text-align: center;
+    padding: 45px 20px;
+    color: #7b8a9a;
+}
+
+.subject-list-page .back-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 11px 18px;
+    background: #e6eef6;
+    color: #536b82;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.subject-list-page .back-button:hover {
+    background: #dce7f1;
+}
+
+@media (max-width: 700px) {
+
+    .subject-list-page .container {
+        width: 94%;
+    }
+
+    .subject-list-page .card {
+        padding: 20px;
+    }
+
+    .subject-list-page th,
+    .subject-list-page td {
+        white-space: nowrap;
+    }
+
+}
+
+/* ==================================================
+   ADD SUBJECT
+================================================== */
+
+.add-subject-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.add-subject-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.add-subject-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.add-subject-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.add-subject-page .container {
+    width: 92%;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.add-subject-page .card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.add-subject-page .card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #1f4e79;
+}
+
+.add-subject-page .form-group {
+    margin-bottom: 20px;
+}
+
+.add-subject-page label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #334e68;
+}
+
+.add-subject-page input,
+.add-subject-page select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: white;
+    transition: 0.2s;
+}
+
+.add-subject-page input:focus,
+.add-subject-page select:focus {
+    outline: none;
+    border-color: #28679f;
+    box-shadow: 0 0 0 3px rgba(40, 103, 159, 0.10);
+}
+
+.add-subject-page .save-button {
+    background: #28679f;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-subject-page .save-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.add-subject-page .back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    padding: 11px 20px;
+    background: #e6eef6;
+    color: #536b82;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-subject-page .back-button:hover {
+    background: #dce7f1;
+}
+
+.add-subject-page .error {
+    color: #dc3545;
+    background: #fff1f2;
+    border: 1px solid #f5c2c7;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.add-subject-page .form-group ul {
+    color: #dc3545;
+    margin: 6px 0 0;
+    padding-left: 20px;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+
+    .add-subject-page .container {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .add-subject-page .card {
+        padding: 22px;
+    }
+
+    .add-subject-page .save-button,
+    .add-subject-page .back-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .add-subject-page .back-button {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+}
+
+/* ==================================================
+   DELETE SUBJECT
+================================================== */
+
+.delete-subject-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.delete-subject-page .container {
+    width: 92%;
+    max-width: 600px;
+    margin: 80px auto;
+}
+
+.delete-subject-page .card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+    text-align: center;
+}
+
+.delete-subject-page h1 {
+    color: #1f4e79;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.delete-subject-page p {
+    color: #5f6c7b;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.delete-subject-page .subject-name {
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+.delete-subject-page .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.delete-subject-page .buttons form {
+    margin: 0;
+}
+
+.delete-subject-page .delete-button {
+    background: #dc3545;
+    color: white;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-subject-page .delete-button:hover {
+    background: #b02a37;
+    transform: translateY(-1px);
+}
+
+.delete-subject-page .cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    padding: 11px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.delete-subject-page .cancel-button:hover {
+    background: #dce7f1;
+}
+
+@media (max-width: 600px) {
+
+    .delete-subject-page .container {
+        width: 94%;
+        margin: 50px auto;
+    }
+
+    .delete-subject-page .card {
+        padding: 25px 20px;
+    }
+
+    .delete-subject-page .buttons {
+        flex-direction: column;
+    }
+
+    .delete-subject-page .buttons form,
+    .delete-subject-page .delete-button,
+    .delete-subject-page .cancel-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+/* ==================================================
+   ENROLLMENT LIST
+================================================== */
+
+.enrollment-list-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.enrollment-list-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.enrollment-list-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.enrollment-list-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.enrollment-list-page .container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.enrollment-list-page .card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.enrollment-list-page .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.enrollment-list-page .top-section h2 {
+    margin: 0;
+    color: #1f4e79;
+}
+
+.enrollment-list-page .top-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.enrollment-list-page .add-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #28679f;
+    color: white;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 9px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.enrollment-list-page .add-button:hover {
+    background: #1f578b;
+    transform: translateY(-2px);
+}
+
+.enrollment-list-page .top-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 9px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.enrollment-list-page .top-back-button:hover {
+    background: #dce7f1;
+}
+
+.enrollment-list-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.enrollment-list-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.enrollment-list-page th {
+    background: #1f4e79;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.enrollment-list-page td {
+    padding: 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #425466;
+}
+
+.enrollment-list-page tbody tr:hover {
+    background: #f5f9fd;
+}
+
+.enrollment-list-page .action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.enrollment-list-page .edit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #28679f;
+    color: white;
+    text-decoration: none;
+    padding: 8px 13px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.enrollment-list-page .edit-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.enrollment-list-page .delete-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    padding: 8px 13px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.enrollment-list-page .delete-button:hover {
+    background: #b02a37;
+    transform: translateY(-1px);
+}
+
+.enrollment-list-page .empty {
+    text-align: center;
+    padding: 45px 20px;
+    color: #7b8a9a;
+}
+
+.enrollment-list-page .back-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 11px 18px;
+    background: #e6eef6;
+    color: #536b82;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.enrollment-list-page .back-button:hover {
+    background: #dce7f1;
+}
+
+@media (max-width: 850px) {
+
+    .enrollment-list-page .top-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .enrollment-list-page .top-buttons {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .enrollment-list-page .container {
+        width: 94%;
+    }
+
+    .enrollment-list-page .card {
+        padding: 20px;
+    }
+
+    .enrollment-list-page th,
+    .enrollment-list-page td {
+        white-space: nowrap;
+    }
+
+}
+
+/* ==================================================
+   ADD ENROLLMENT
+================================================== */
+
+.add-enrollment-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.add-enrollment-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.add-enrollment-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.add-enrollment-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.add-enrollment-page .container {
+    width: 92%;
+    max-width: 650px;
+    margin: 40px auto;
+}
+
+.add-enrollment-page .card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.add-enrollment-page .card h2 {
+    color: #1f4e79;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.add-enrollment-page .form-group {
+    margin-bottom: 20px;
+}
+
+.add-enrollment-page label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #334e68;
+}
+
+.add-enrollment-page select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: white;
+    color: #334e68;
+    cursor: pointer;
+}
+
+.add-enrollment-page select:focus {
+    border-color: #28679f;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 103, 159, 0.10);
+}
+
+.add-enrollment-page .error {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.add-enrollment-page .error ul {
+    margin: 5px 0 0;
+    padding-left: 20px;
+}
+
+.add-enrollment-page .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.add-enrollment-page .save-button {
+    background: #28679f;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-enrollment-page .save-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.add-enrollment-page .cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    padding: 11px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.add-enrollment-page .cancel-button:hover {
+    background: #dce7f1;
+}
+
+@media (max-width: 700px) {
+
+    .add-enrollment-page .container {
+        width: 94%;
+    }
+
+    .add-enrollment-page .card {
+        padding: 22px;
+    }
+
+    .add-enrollment-page .buttons {
+        flex-direction: column;
+    }
+
+    .add-enrollment-page .save-button,
+    .add-enrollment-page .cancel-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ==================================================
+   EDIT ENROLLMENT
+================================================== */
+
+.edit-enrollment-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.edit-enrollment-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.edit-enrollment-page .header-content {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.edit-enrollment-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.edit-enrollment-page .container {
+    width: 92%;
+    max-width: 650px;
+    margin: 40px auto;
+}
+
+.edit-enrollment-page .card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.edit-enrollment-page .card h2 {
+    color: #1f4e79;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.edit-enrollment-page .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-enrollment-page label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #334e68;
+}
+
+.edit-enrollment-page select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: white;
+    color: #334e68;
+    cursor: pointer;
+}
+
+.edit-enrollment-page select:focus {
+    border-color: #28679f;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 103, 159, 0.10);
+}
+
+.edit-enrollment-page .error {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.edit-enrollment-page .error ul {
+    margin: 5px 0 0;
+    padding-left: 20px;
+}
+
+.edit-enrollment-page .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.edit-enrollment-page .save-button {
+    background: #28679f;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.edit-enrollment-page .save-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.edit-enrollment-page .cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    padding: 11px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.edit-enrollment-page .cancel-button:hover {
+    background: #dce7f1;
+}
+
+@media (max-width: 700px) {
+
+    .edit-enrollment-page .container {
+        width: 94%;
+    }
+
+    .edit-enrollment-page .card {
+        padding: 22px;
+    }
+
+    .edit-enrollment-page .buttons {
+        flex-direction: column;
+    }
+
+    .edit-enrollment-page .save-button,
+    .edit-enrollment-page .cancel-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ==================================================
+   DELETE ENROLLMENT
+================================================== */
+
+.delete-enrollment-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.delete-enrollment-page .container {
+    width: 92%;
+    max-width: 600px;
+    margin: 100px auto;
+}
+
+.delete-enrollment-page .card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+    text-align: center;
+}
+
+.delete-enrollment-page .icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background: #fff1f2;
+    color: #dc3545;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.delete-enrollment-page h1 {
+    margin: 0 0 20px;
+    color: #1f4e79;
+    font-size: 26px;
+}
+
+.delete-enrollment-page p {
+    color: #536b82;
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+.delete-enrollment-page .enrollment-name {
+    color: #1f4e79;
+    font-weight: bold;
+}
+
+.delete-enrollment-page .warning {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.delete-enrollment-page .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.delete-enrollment-page .delete-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.delete-enrollment-page .delete-button:hover {
+    background: #b02a37;
+    transform: translateY(-1px);
+}
+
+.delete-enrollment-page .cancel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    padding: 11px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.delete-enrollment-page .cancel-button:hover {
+    background: #dce7f1;
+}
+
+@media (max-width: 700px) {
+
+    .delete-enrollment-page .container {
+        width: 94%;
+        margin: 60px auto;
+    }
+
+    .delete-enrollment-page .card {
+        padding: 25px 20px;
+    }
+
+    .delete-enrollment-page .buttons {
+        flex-direction: column;
+    }
+
+    .delete-enrollment-page .delete-button,
+    .delete-enrollment-page .cancel-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ==================================================
+   MANAGEMENT ATTENDANCE HISTORY
+================================================== */
+
+.management-attendance-history-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.management-attendance-history-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.management-attendance-history-page .header-content {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.management-attendance-history-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.management-attendance-history-page .container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.management-attendance-history-page .card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.10);
+}
+
+.management-attendance-history-page .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.management-attendance-history-page .top-section h2 {
+    margin: 0;
+    color: #1f4e79;
+}
+
+.management-attendance-history-page .back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.management-attendance-history-page .back-button:hover {
+    background: #dce7f1;
+}
+
+.management-attendance-history-page .filter-card {
+    background: #f7faff;
+    border: 1px solid #e1eaf3;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.management-attendance-history-page .filter-card h3 {
+    margin: 0 0 18px;
+    color: #1f4e79;
+    font-size: 17px;
+}
+
+.management-attendance-history-page .filter-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    align-items: end;
+}
+
+.management-attendance-history-page .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.management-attendance-history-page .form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #334e68;
+    margin-bottom: 7px;
+}
+
+.management-attendance-history-page .form-group input,
+.management-attendance-history-page .form-group select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: white;
+    color: #334e68;
+}
+
+.management-attendance-history-page .form-group input:focus,
+.management-attendance-history-page .form-group select:focus {
+    border-color: #28679f;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 103, 159, 0.10);
+}
+
+.management-attendance-history-page .filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.management-attendance-history-page .filter-button {
+    background: #28679f;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.management-attendance-history-page .filter-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.management-attendance-history-page .clear-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6eef6;
+    color: #536b82;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.management-attendance-history-page .clear-button:hover {
+    background: #dce7f1;
+}
+
+.management-attendance-history-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.management-attendance-history-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.management-attendance-history-page th {
+    background: #1f4e79;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.management-attendance-history-page td {
+    padding: 14px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #425466;
+}
+
+.management-attendance-history-page tbody tr:hover {
+    background: #f5f9fd;
+}
+
+.management-attendance-history-page .present {
+    display: inline-block;
+    background: #e7f6ec;
+    color: #198754;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.management-attendance-history-page .absent {
+    display: inline-block;
+    background: #fff1f2;
+    color: #dc3545;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.management-attendance-history-page .empty {
+    text-align: center;
+    padding: 45px 20px;
+    color: #7b8a9a;
+}
+
+.management-attendance-history-page .record-count {
+    margin-bottom: 15px;
+    color: #536b82;
+    font-size: 14px;
+}
+
+@media (max-width: 850px) {
+
+    .management-attendance-history-page .top-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .management-attendance-history-page .filter-form {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .management-attendance-history-page .container {
+        width: 94%;
+    }
+
+    .management-attendance-history-page .card {
+        padding: 20px;
+    }
+
+    .management-attendance-history-page th,
+    .management-attendance-history-page td {
+        white-space: nowrap;
+    }
+
+}
+
+/* ==================================================
+   MANAGEMENT DASHBOARD
+================================================== */
+
+.management-dashboard-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.management-dashboard-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.management-dashboard-page .header-content {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.management-dashboard-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.management-dashboard-page .header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.management-dashboard-page .logout-button {
+    background: white;
+    color: #1f4e79;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.management-dashboard-page .logout-button:hover {
+    background: #eaf2f9;
+    transform: translateY(-1px);
+}
+
+.management-dashboard-page .container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.management-dashboard-page .welcome {
+    margin-bottom: 25px;
+}
+
+.management-dashboard-page .welcome h2 {
+    margin: 0 0 6px;
+    color: #1f4e79;
+    font-size: 25px;
+}
+
+.management-dashboard-page .welcome p {
+    margin: 0;
+    color: #66788a;
+}
+
+.management-dashboard-page .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.management-dashboard-page .stat-card {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.08);
+    border-left: 5px solid #28679f;
+}
+
+.management-dashboard-page .stat-card h3 {
+    margin: 0 0 10px;
+    color: #66788a;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.management-dashboard-page .stat-card .number {
+    margin: 0;
+    color: #1f4e79;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.management-dashboard-page .section {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.08);
+    margin-bottom: 25px;
+}
+
+.management-dashboard-page .section h2 {
+    margin: 0 0 20px;
+    color: #1f4e79;
+    font-size: 20px;
+}
+
+.management-dashboard-page .management-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.management-dashboard-page .management-link {
+    display: block;
+    background: #f5f9fd;
+    border: 1px solid #dfe9f2;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.management-dashboard-page .management-link:hover {
+    background: #edf5fc;
+    border-color: #b9cee0;
+    transform: translateY(-2px);
+}
+
+.management-dashboard-page .management-link h3 {
+    margin: 0 0 6px;
+    color: #1f4e79;
+    font-size: 16px;
+}
+
+.management-dashboard-page .management-link p {
+    margin: 0;
+    color: #66788a;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.management-dashboard-page .attendance-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.management-dashboard-page .summary-box {
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    background: #f7faff;
+    border: 1px solid #e1eaf3;
+}
+
+.management-dashboard-page .summary-box h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #66788a;
+}
+
+.management-dashboard-page .summary-box .number {
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: #1f4e79;
+}
+
+.management-dashboard-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.management-dashboard-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.management-dashboard-page th {
+    background: #1f4e79;
+    color: white;
+    padding: 13px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.management-dashboard-page td {
+    padding: 13px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #425466;
+    font-size: 14px;
+}
+
+.management-dashboard-page tbody tr:hover {
+    background: #f5f9fd;
+}
+
+.management-dashboard-page .present {
+    display: inline-block;
+    background: #e7f6ec;
+    color: #198754;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.management-dashboard-page .absent {
+    display: inline-block;
+    background: #fff1f2;
+    color: #dc3545;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.management-dashboard-page .view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #28679f;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.management-dashboard-page .view-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.management-dashboard-page .empty {
+    text-align: center;
+    padding: 30px 20px;
+    color: #7b8a9a;
+}
+
+@media (max-width: 950px) {
+
+    .management-dashboard-page .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .management-dashboard-page .management-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .management-dashboard-page .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .management-dashboard-page .container {
+        width: 94%;
+    }
+
+    .management-dashboard-page .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .management-dashboard-page .management-links {
+        grid-template-columns: 1fr;
+    }
+
+    .management-dashboard-page .attendance-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .management-dashboard-page .section {
+        padding: 20px;
+    }
+
+    .management-dashboard-page th,
+    .management-dashboard-page td {
+        white-space: nowrap;
+    }
+
+}
+
+/* ==================================================
+   TEACHER LOGIN
+================================================== */
+
+.teacher-login-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teacher-login-page .login-container {
+    width: 92%;
+    max-width: 430px;
+}
+
+.teacher-login-page .login-card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(31, 78, 121, 0.12);
+}
+
+.teacher-login-page .logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.teacher-login-page .logo-section h1 {
+    margin: 0;
+    color: #1f4e79;
+    font-size: 28px;
+}
+
+.teacher-login-page .logo-section p {
+    margin: 8px 0 0;
+    color: #66788a;
+    font-size: 14px;
+}
+
+.teacher-login-page .form-group {
+    margin-bottom: 20px;
+}
+
+.teacher-login-page label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334e68;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.teacher-login-page input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd6e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.teacher-login-page input:focus {
+    border-color: #28679f;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 103, 159, 0.10);
+}
+
+.teacher-login-page .login-button {
+    width: 100%;
+    background: #28679f;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.teacher-login-page .login-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.teacher-login-page .error-message {
+    background: #fff1f2;
+    color: #dc3545;
+    border: 1px solid #f5c2c7;
+    padding: 11px 13px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.teacher-login-page .admin-link {
+    display: block;
+    text-align: center;
+    margin-top: 22px;
+    color: #28679f;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.teacher-login-page .admin-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+
+    .teacher-login-page .login-container {
+        width: 94%;
+    }
+
+    .teacher-login-page .login-card {
+        padding: 25px 20px;
+    }
+
+    .teacher-login-page .logo-section h1 {
+        font-size: 24px;
+    }
+
+}
+
+/* ==================================================
+   TEACHER DASHBOARD
+================================================== */
+
+.teacher-dashboard-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef5fc;
+    color: #243b53;
+}
+
+.teacher-dashboard-page .header {
+    background: #1f4e79;
+    color: white;
+    padding: 20px;
+}
+
+.teacher-dashboard-page .header-content {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.teacher-dashboard-page .header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.teacher-dashboard-page .header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.teacher-dashboard-page .logout-button {
+    background: white;
+    color: #1f4e79;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.teacher-dashboard-page .logout-button:hover {
+    background: #eaf2f9;
+    transform: translateY(-1px);
+}
+
+.teacher-dashboard-page .container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.teacher-dashboard-page .welcome {
+    margin-bottom: 25px;
+}
+
+.teacher-dashboard-page .welcome h2 {
+    margin: 0 0 6px;
+    color: #1f4e79;
+    font-size: 25px;
+}
+
+.teacher-dashboard-page .welcome p {
+    margin: 0;
+    color: #66788a;
+}
+
+.teacher-dashboard-page .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.teacher-dashboard-page .stat-card {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.08);
+    border-left: 5px solid #28679f;
+}
+
+.teacher-dashboard-page .stat-card h3 {
+    margin: 0 0 10px;
+    color: #66788a;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.teacher-dashboard-page .stat-card .number {
+    margin: 0;
+    color: #1f4e79;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.teacher-dashboard-page .section {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(31, 78, 121, 0.08);
+    margin-bottom: 25px;
+}
+
+.teacher-dashboard-page .section h2 {
+    margin: 0 0 20px;
+    color: #1f4e79;
+    font-size: 20px;
+}
+
+.teacher-dashboard-page .subject-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.teacher-dashboard-page .subject-card {
+    background: #f5f9fd;
+    border: 1px solid #dfe9f2;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.teacher-dashboard-page .subject-card:hover {
+    background: #edf5fc;
+    border-color: #b9cee0;
+    transform: translateY(-2px);
+}
+
+.teacher-dashboard-page .subject-code {
+    color: #28679f;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.teacher-dashboard-page .subject-card h3 {
+    margin: 0 0 8px;
+    color: #1f4e79;
+    font-size: 17px;
+}
+
+.teacher-dashboard-page .subject-card p {
+    margin: 4px 0;
+    color: #66788a;
+    font-size: 13px;
+}
+
+.teacher-dashboard-page .history-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #28679f;
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.2s;
+    margin-top: 5px;
+}
+
+.teacher-dashboard-page .history-button:hover {
+    background: #1f578b;
+    transform: translateY(-1px);
+}
+
+.teacher-dashboard-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.teacher-dashboard-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.teacher-dashboard-page th {
+    background: #1f4e79;
+    color: white;
+    padding: 13px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.teacher-dashboard-page td {
+    padding: 13px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #425466;
+    font-size: 14px;
+}
+
+.teacher-dashboard-page tbody tr:hover {
+    background: #f5f9fd;
+}
+
+.teacher-dashboard-page .present {
+    display: inline-block;
+    background: #e7f6ec;
+    color: #198754;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.teacher-dashboard-page .absent {
+    display: inline-block;
+    background: #fff1f2;
+    color: #dc3545;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.teacher-dashboard-page .empty {
+    text-align: center;
+    padding: 30px 20px;
+    color: #7b8a9a;
+}
+
+.teacher-dashboard-page .empty a {
+    color: #28679f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.teacher-dashboard-page .empty a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 950px) {
+
+    .teacher-dashboard-page .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .teacher-dashboard-page .subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .teacher-dashboard-page .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .teacher-dashboard-page .container {
+        width: 94%;
+    }
+
+    .teacher-dashboard-page .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-dashboard-page .subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teacher-dashboard-page .section {
+        padding: 20px;
+    }
+
+    .teacher-dashboard-page th,
+    .teacher-dashboard-page td {
+        white-space: nowrap;
+    }
+
+}

@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Subject List - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="subject-list-page">
+
+
+    <div class="header">
+
+        <div class="header-content">
+
+            <h1>
+                RHMC AttendEase
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>
+                Subject List
+            </h2>
+
+
+            <a
+                href="{% url 'add_subject' %}"
+                class="add-button"
+            >
+                + Add Subject
+            </a>
+
+
+            {% if subjects %}
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Subject Code
+                                </th>
+
+                                <th>
+                                    Subject Name
+                                </th>
+
+                                <th>
+                                    Teacher
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for subject in subjects %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ subject.subject_code }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ subject.subject_name }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ subject.teacher.name }}
+                                    </td>
+
+
+                                    <td>
+
+                                        <a
+                                            href="{% url 'delete_subject' subject.id %}"
+                                            class="delete-button"
+                                        >
+                                            Delete
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="empty">
+
+                    <p>
+                        No subjects found.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+            <a
+                href="{% url 'management_dashboard' %}"
+                class="back-button"
+            >
+                ← Back to Management
+            </a>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

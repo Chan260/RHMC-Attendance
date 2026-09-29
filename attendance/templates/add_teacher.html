@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Add Teacher - RHMC AttendEase</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: #1f4e79;
+            color: white;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            color: #1f4e79;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1f4e79;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1f4e79;
+            color: white;
+            text-decoration: none;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #163a5c;
+        }
+
+        .back-btn {
+            background: #777;
+        }
+
+        .back-btn:hover {
+            background: #555;
+        }
+
+        .error {
+            color: #b02a37;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>RHMC AttendEase</h1>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Add Teacher</h2>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {% for field in form %}
+
+                    <div class="form-group">
+
+                        {{ field.label_tag }}
+
+                        {{ field }}
+
+                        {% if field.errors %}
+
+                            <div class="error">
+                                {{ field.errors }}
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+
+                <div class="buttons">
+
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Add Teacher
+                    </button>
+
+                    <a
+                        href="{% url 'teacher_list' %}"
+                        class="btn back-btn"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

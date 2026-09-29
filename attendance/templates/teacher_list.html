@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Teachers - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="teacher-list-page">
+
+
+    <div class="header">
+
+        <div class="header-content">
+
+            <h1>
+                RHMC AttendEase
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>
+                Teacher List
+            </h2>
+
+
+            <a
+                href="{% url 'add_teacher' %}"
+                class="add-button"
+            >
+                + Add Teacher
+            </a>
+
+
+            {% if teachers %}
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Account
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for teacher in teachers %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ teacher.name }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ teacher.email }}
+                                    </td>
+
+
+                                    <td>
+
+                                        {% if teacher.user %}
+
+                                            {{ teacher.user.username }}
+
+                                        {% else %}
+
+                                            No account
+
+                                        {% endif %}
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <a
+                                            href="{% url 'delete_teacher' teacher.id %}"
+                                            class="delete-button"
+                                        >
+                                            Delete
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="empty">
+
+                    <p>
+                        No teachers found.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+            <a
+                href="{% url 'management_dashboard' %}"
+                class="back"
+            >
+                ← Back to Management
+            </a>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

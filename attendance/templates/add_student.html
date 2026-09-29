@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Student - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="add-student-page">
+
+
+    <div class="header">
+
+        <div class="header-content">
+
+            <h1>
+                RHMC AttendEase
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>
+                Add Student
+            </h2>
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                {% for field in form %}
+
+                    <div class="form-group">
+
+                        {{ field.label_tag }}
+
+                        {{ field }}
+
+
+                        {% if field.errors %}
+
+                            <div class="error">
+
+                                {{ field.errors }}
+
+                            </div>
+
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+
+                <div class="buttons">
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Add Student
+                    </button>
+
+
+                    <a
+                        href="{% url 'student_list' %}"
+                        class="cancel-button"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

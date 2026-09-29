@@ -1,0 +1,199 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Enrollment List - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="enrollment-list-page">
+
+
+    <div class="header">
+
+        <div class="header-content">
+
+            <h1>
+                RHMC AttendEase
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+
+            <div class="top-section">
+
+                <h2>
+                    Enrollment List
+                </h2>
+
+
+                <div class="top-buttons">
+
+                    <a
+                        href="{% url 'add_enrollment' %}"
+                        class="add-button"
+                    >
+                        + Enroll Student
+                    </a>
+
+
+                    <a
+                        href="{% url 'management_dashboard' %}"
+                        class="top-back-button"
+                    >
+                        Back to Management
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            {% if enrollments %}
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Student ID
+                                </th>
+
+                                <th>
+                                    Student Name
+                                </th>
+
+                                <th>
+                                    Subject Code
+                                </th>
+
+                                <th>
+                                    Subject Name
+                                </th>
+
+                                <th>
+                                    Teacher
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for enrollment in enrollments %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ enrollment.student.student_id }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ enrollment.student.name }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ enrollment.subject.subject_code }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ enrollment.subject.subject_name }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ enrollment.subject.teacher.name }}
+                                    </td>
+
+
+                                    <td>
+
+                                        <div class="action-buttons">
+
+                                            <a
+                                                href="{% url 'edit_enrollment' enrollment.id %}"
+                                                class="edit-button"
+                                            >
+                                                Edit
+                                            </a>
+
+
+                                            <a
+                                                href="{% url 'delete_enrollment' enrollment.id %}"
+                                                class="delete-button"
+                                            >
+                                                Delete
+                                            </a>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="empty">
+
+                    <p>
+                        No enrollments found.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+            <a
+                href="{% url 'management_dashboard' %}"
+                class="back-button"
+            >
+                ← Back to Management
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

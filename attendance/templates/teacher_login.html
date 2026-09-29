@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Teacher Login - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="teacher-login-page">
+
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+
+            <div class="logo-section">
+
+                <h1>
+                    RHMC AttendEase
+                </h1>
+
+                <p>
+                    Teacher Login
+                </p>
+
+            </div>
+
+
+            {% if error %}
+
+                <div class="error-message">
+                    {{ error }}
+                </div>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Login
+                </button>
+
+
+            </form>
+
+
+            <a
+                href="/admin/"
+                class="admin-link"
+            >
+                Administrator Login
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Enrollment - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="edit-enrollment-page">
+
+
+    <div class="header">
+
+        <div class="header-content">
+
+            <h1>
+                RHMC AttendEase
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>
+                Edit Enrollment
+            </h2>
+
+
+            {% if form.errors %}
+
+                <div class="error">
+                    Please correct the errors below.
+                </div>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <div class="form-group">
+
+                    <label for="{{ form.student.id_for_label }}">
+                        Student
+                    </label>
+
+                    {{ form.student }}
+
+                    {% if form.student.errors %}
+
+                        <div class="error">
+                            {{ form.student.errors }}
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="{{ form.subject.id_for_label }}">
+                        Subject
+                    </label>
+
+                    {{ form.subject }}
+
+                    {% if form.subject.errors %}
+
+                        <div class="error">
+                            {{ form.subject.errors }}
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div class="buttons">
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                    >
+                        Save Changes
+                    </button>
+
+
+                    <a
+                        href="{% url 'enrollment_list' %}"
+                        class="cancel-button"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

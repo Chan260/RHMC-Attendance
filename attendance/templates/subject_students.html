@@ -1,0 +1,423 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>{{ subject.subject_code }} - Students - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+    
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <div class="header">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🎓
+            </div>
+
+            <div class="brand-text">
+
+                <h1>
+                    RHMC AttendEase
+                </h1>
+
+                <p>
+                    Smart Attendance. Better Learning.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="{% url 'teacher_logout' %}"
+            class="logout"
+        >
+            Logout
+        </a>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <div class="container">
+
+
+        <!-- BACK BUTTON -->
+
+        <a
+            href="{% url 'teacher_dashboard' %}"
+            class="back"
+        >
+            ← Back to Dashboard
+        </a>
+
+
+        <!-- =========================
+             SUBJECT INFORMATION
+        ========================= -->
+
+        <div class="subject-card">
+
+
+            <div class="subject-banner">
+
+                <div class="subject-title">
+
+                    <div class="subject-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            {{ subject.subject_code }}
+                        </h2>
+
+                        <p>
+                            {{ subject.subject_name }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="subject-info">
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+                        📖
+                    </div>
+
+                    <div class="info-text">
+
+                        <small>
+                            Subject
+                        </small>
+
+                        <strong>
+                            {{ subject.subject_name }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+                        👨‍🏫
+                    </div>
+
+                    <div class="info-text">
+
+                        <small>
+                            Teacher
+                        </small>
+
+                        <strong>
+                            {{ teacher.name }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-icon">
+                        👥
+                    </div>
+
+                    <div class="info-text">
+
+                        <small>
+                            Enrolled Students
+                        </small>
+
+                        <strong class="student-number">
+                            {{ enrollments|length }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             STUDENT TABLE
+        ========================= -->
+
+        <div class="table-card">
+
+
+            <div class="table-header">
+
+
+                <div class="table-heading">
+
+                    <div class="table-heading-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Enrolled Students
+                        </h2>
+
+                        <p>
+                            Mark attendance for each student below.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="attendance-note">
+                    Good Attendance Builds Success!
+                </div>
+
+
+            </div>
+
+
+            {% if enrollments %}
+
+
+                <div class="table-container">
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+
+                                <th>
+                                    Student ID
+                                </th>
+
+                                <th>
+                                    Student Name
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Attendance
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            {% for enrollment in enrollments %}
+
+
+                                <tr>
+
+
+                                    <td>
+                                        {{ forloop.counter }}
+                                    </td>
+
+
+                                    <td class="student-id">
+                                        {{ enrollment.student.student_id }}
+                                    </td>
+
+
+                                    <td class="student-name">
+                                        {{ enrollment.student.name }}
+                                    </td>
+
+
+                                    <td class="student-email">
+                                        {{ enrollment.student.email }}
+                                    </td>
+
+
+                                    <td>
+
+
+                                        {% if enrollment.attendance_status == "Present" %}
+
+                                            <span class="status-present">
+                                                ✓ Present
+                                            </span>
+
+
+                                        {% elif enrollment.attendance_status == "Absent" %}
+
+                                            <span class="status-absent">
+                                                ✕ Absent
+                                            </span>
+
+
+                                        {% else %}
+
+                                            <span class="status-not-marked">
+                                                ● Not Marked
+                                            </span>
+
+                                        {% endif %}
+
+
+                                    </td>
+
+
+                                    <td>
+
+
+                                        <div class="attendance-actions">
+
+
+                                            <form
+                                                method="POST"
+                                                action="{% url 'mark_attendance' subject.id enrollment.student.id %}"
+                                            >
+
+                                                {% csrf_token %}
+
+                                                <button
+                                                    type="submit"
+                                                    name="status"
+                                                    value="Present"
+                                                    class="attendance-btn present-btn"
+                                                >
+                                                    ✓ Present
+                                                </button>
+
+                                            </form>
+
+
+                                            <form
+                                                method="POST"
+                                                action="{% url 'mark_attendance' subject.id enrollment.student.id %}"
+                                            >
+
+                                                {% csrf_token %}
+
+                                                <button
+                                                    type="submit"
+                                                    name="status"
+                                                    value="Absent"
+                                                    class="attendance-btn absent-btn"
+                                                >
+                                                    ✕ Absent
+                                                </button>
+
+                                            </form>
+
+
+                                        </div>
+
+
+                                    </td>
+
+
+                                </tr>
+
+
+                            {% endfor %}
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+                <div class="footer-note">
+
+                    💡 Click <strong>Present</strong> or <strong>Absent</strong>
+                    to record the student's attendance for today.
+
+                </div>
+
+
+            {% else %}
+
+
+                <div class="empty">
+
+                    <div class="empty-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        No Students Enrolled
+                    </h3>
+
+                    <p>
+                        No students are currently enrolled in this subject.
+                    </p>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Delete Subject - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="delete-subject-page">
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>
+                Delete Subject
+            </h1>
+
+
+            <p>
+
+                Are you sure you want to delete
+
+                <span class="subject-name">
+
+                    {{ subject.subject_code }} -
+                    {{ subject.subject_name }}
+
+                </span>
+
+                ?
+
+            </p>
+
+
+            <p>
+
+                This will also remove the subject's
+                enrollments and attendance records.
+
+            </p>
+
+
+            <div class="buttons">
+
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <button
+                        type="submit"
+                        class="delete-button"
+                    >
+                        Yes, Delete
+                    </button>
+
+                </form>
+
+
+                <a
+                    href="{% url 'subject_list' %}"
+                    class="cancel-button"
+                >
+                    Cancel
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

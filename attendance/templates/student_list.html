@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Students - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="student-list-page">
+
+
+    <div class="header">
+
+        <div class="header-content">
+
+            <h1>
+                RHMC AttendEase
+            </h1>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>
+                Student List
+            </h2>
+
+
+            <a
+                href="{% url 'add_student' %}"
+                class="add-button"
+            >
+                + Add Student
+            </a>
+
+
+            {% if students %}
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Student ID
+                                </th>
+
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for student in students %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ student.student_id }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ student.name }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ student.email }}
+                                    </td>
+
+
+                                    <td>
+
+                                        <a
+                                            href="{% url 'delete_student' student.id %}"
+                                            class="delete-button"
+                                        >
+                                            Delete
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="empty">
+
+                    <p>
+                        No students found.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+            <a
+                href="{% url 'management_dashboard' %}"
+                class="back"
+            >
+                ← Back to Management
+            </a>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

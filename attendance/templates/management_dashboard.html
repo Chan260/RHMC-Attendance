@@ -1,0 +1,405 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Management Dashboard - RHMC AttendEase</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'attendance/css/style.css' %}"
+    >
+
+</head>
+
+
+<body class="management-dashboard-page">
+
+
+    <div class="header">
+
+        <div class="header-content">
+
+            <div>
+
+                <h1>
+                    RHMC AttendEase
+                </h1>
+
+                <p>
+                    Management Dashboard
+                </p>
+
+            </div>
+
+
+            <a
+                href="{% url 'teacher_logout' %}"
+                class="logout-button"
+            >
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="welcome">
+
+            <h2>
+                Welcome, Administrator
+            </h2>
+
+            <p>
+                Manage teachers, students, subjects, enrollments,
+                and attendance records.
+            </p>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="stats">
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Total Teachers
+                </h3>
+
+                <p class="number">
+                    {{ teacher_count }}
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Total Students
+                </h3>
+
+                <p class="number">
+                    {{ student_count }}
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Total Subjects
+                </h3>
+
+                <p class="number">
+                    {{ subject_count }}
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>
+                    Total Enrollments
+                </h3>
+
+                <p class="number">
+                    {{ enrollment_count }}
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- MANAGEMENT MENU -->
+
+        <div class="section">
+
+            <h2>
+                Management
+            </h2>
+
+
+            <div class="management-links">
+
+
+                <a
+                    href="{% url 'teacher_list' %}"
+                    class="management-link"
+                >
+
+                    <h3>
+                        Teachers
+                    </h3>
+
+                    <p>
+                        Add and manage teacher accounts.
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="{% url 'student_list' %}"
+                    class="management-link"
+                >
+
+                    <h3>
+                        Students
+                    </h3>
+
+                    <p>
+                        Add and manage student records.
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="{% url 'subject_list' %}"
+                    class="management-link"
+                >
+
+                    <h3>
+                        Subjects
+                    </h3>
+
+                    <p>
+                        Manage subjects and assigned teachers.
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="{% url 'enrollment_list' %}"
+                    class="management-link"
+                >
+
+                    <h3>
+                        Enrollments
+                    </h3>
+
+                    <p>
+                        Assign students to their subjects.
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="{% url 'management_attendance_history' %}"
+                    class="management-link"
+                >
+
+                    <h3>
+                        Attendance History
+                    </h3>
+
+                    <p>
+                        View and filter all attendance records.
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="/admin/"
+                    class="management-link"
+                >
+
+                    <h3>
+                        Django Admin
+                    </h3>
+
+                    <p>
+                        Open the Django administration panel.
+                    </p>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ATTENDANCE SUMMARY -->
+
+        <div class="section">
+
+            <h2>
+                Attendance Summary
+            </h2>
+
+
+            <div class="attendance-summary">
+
+
+                <div class="summary-box">
+
+                    <h3>
+                        Present
+                    </h3>
+
+                    <p class="number">
+                        {{ present_count }}
+                    </p>
+
+                </div>
+
+
+                <div class="summary-box">
+
+                    <h3>
+                        Absent
+                    </h3>
+
+                    <p class="number">
+                        {{ absent_count }}
+                    </p>
+
+                </div>
+
+
+                <div class="summary-box">
+
+                    <h3>
+                        Total Attendance Records
+                    </h3>
+
+                    <p class="number">
+                        {{ attendance_count }}
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- RECENT ATTENDANCE -->
+
+        <div class="section">
+
+            <h2>
+                Recent Attendance
+            </h2>
+
+
+            {% if recent_attendance %}
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Student
+                                </th>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for record in recent_attendance %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ record.date }}
+                                    </td>
+
+                                    <td>
+                                        {{ record.student.name }}
+                                    </td>
+
+                                    <td>
+                                        {{ record.subject.subject_code }}
+                                        -
+                                        {{ record.subject.subject_name }}
+                                    </td>
+
+                                    <td>
+
+                                        {% if record.status == 'Present' %}
+
+                                            <span class="present">
+                                                Present
+                                            </span>
+
+                                        {% else %}
+
+                                            <span class="absent">
+                                                Absent
+                                            </span>
+
+                                        {% endif %}
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="empty">
+
+                    <p>
+                        No attendance records yet.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
