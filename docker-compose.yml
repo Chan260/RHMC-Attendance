@@ -29,6 +29,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_HOST: db
       POSTGRES_PORT: "5432"
+      ATTENDANCE_SERVICE_API_KEY: ${ATTENDANCE_SERVICE_API_KEY:?ATTENDANCE_SERVICE_API_KEY is required}
     ports:
       - "8000:8000"
     depends_on:
@@ -40,6 +41,8 @@ services:
       context: ./attendance_service
     container_name: rhmc_attendance_service
     restart: unless-stopped
+    environment:
+      ATTENDANCE_SERVICE_API_KEY: ${ATTENDANCE_SERVICE_API_KEY:?ATTENDANCE_SERVICE_API_KEY is required}
     ports:
       - "127.0.0.1:8001:8001"
 
