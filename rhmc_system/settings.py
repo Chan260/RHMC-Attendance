@@ -80,6 +80,10 @@ import os
 
 load_dotenv(BASE_DIR / ".env")
 
+# Attendance microservice configuration.
+ATTENDANCE_SERVICE_URL = "http://attendance_service:8001"
+ATTENDANCE_SERVICE_API_KEY = os.getenv("ATTENDANCE_SERVICE_API_KEY", "")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
