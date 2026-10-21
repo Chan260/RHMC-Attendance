@@ -86,8 +86,8 @@ DATABASES = {
         'NAME': os.getenv('POSTGRES_DB', 'rhmc_attendance'),
         'USER': os.getenv('POSTGRES_USER', 'rhmc_admin'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        'HOST': '127.0.0.1',
-        'PORT': '5433',
+        'HOST': os.getenv('POSTGRES_HOST', '127.0.0.1'),
+        'PORT': os.getenv('POSTGRES_PORT', '5433'),
     }
 }
 

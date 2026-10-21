@@ -1,0 +1,12 @@
+
+venv/
+venv_py314_backup/
+.git/
+.env
+backups/
+rhmc_data_backup.json
+db.sqlite3
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store

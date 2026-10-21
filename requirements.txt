@@ -1,5 +1,7 @@
+
 asgiref==3.12.1
 Django==5.0.14
-mysqlclient==2.3.0
+psycopg[binary]>=3.2,<4.0
+python-dotenv
 sqlparse==0.6.0
 tzdata==2026.4
