@@ -63,14 +63,23 @@
 
     <div class="container">
 
+    {% if messages %}
+        <div class="system-messages" role="status" aria-live="polite">
+            {% for message in messages %}
+                <div class="system-message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
-        <!-- BACK BUTTON -->
+    <!-- BACK BUTTON -->
 
         <a
             href="{% url 'teacher_dashboard' %}"
             class="back"
         >
-            ← Back to Dashboard
+             Back to Dashboard
         </a>
 
 

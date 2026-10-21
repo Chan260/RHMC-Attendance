@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.utils import timezone
 from django.db.models import Count
 
@@ -208,7 +209,6 @@ def mark_attendance(request, subject_id, student_id):
         subject=subject,
         student_id=student_id
     )
-
     if request.method == 'POST':
 
         status = request.POST.get('status')
@@ -223,6 +223,19 @@ def mark_attendance(request, subject_id, student_id):
                     'status': status
                 }
             )
+
+            messages.success(
+                request,
+                f"Attendance saved successfully: {enrollment.student} marked {status}."
+            )
+
+        else:
+
+            messages.error(
+                request,
+                'Invalid attendance status. Please choose Present or Absent.'
+            )
+
 
     return redirect(
         'subject_students',

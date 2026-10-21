@@ -4859,3 +4859,32 @@ tbody tr:hover td {
     }
 
 }
+
+
+/* SYSTEM MESSAGES */
+.system-messages {
+    margin-bottom: 20px;
+}
+
+.system-message {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+/* SUCCESS MESSAGE */
+.system-message.success {
+    background-color: #e8f7ee;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+
+/* ERROR MESSAGE */
+.system-message.error {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
