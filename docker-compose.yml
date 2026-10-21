@@ -35,5 +35,15 @@ services:
       db:
         condition: service_healthy
 
+  attendance_service:
+    build:
+      context: ./attendance_service
+    container_name: rhmc_attendance_service
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8001:8001"
+
 volumes:
   rhmc_postgres_data:
+
+
