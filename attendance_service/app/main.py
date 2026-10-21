@@ -49,3 +49,26 @@ def home():
     return {
         "message": "RHMC AttendEase Attendance Service is running."
     }
+
+
+
+@app.get("/attendance/summary", dependencies=[Depends(verify_api_key)])
+def attendance_summary(present: int = 0, absent: int = 0):
+    if present < 0 or absent < 0:
+        raise HTTPException(
+            status_code=400,
+            detail="Attendance counts cannot be negative.",
+        )
+
+    total = present + absent
+
+    return {
+        "present": present,
+        "absent": absent,
+        "total": total,
+        "message": (
+            "No attendance records found."
+            if total == 0
+            else f"{total} attendance records summarized."
+        ),
+    }

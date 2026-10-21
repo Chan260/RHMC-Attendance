@@ -1,9 +1,12 @@
+
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Teacher Dashboard - RHMC AttendEase</title>
 
@@ -11,29 +14,17 @@
         rel="stylesheet"
         href="{% static 'attendance/css/style.css' %}"
     >
-
 </head>
-
 
 <body class="teacher-dashboard-page">
 
-
     <div class="header">
-
         <div class="header-content">
 
             <div>
-
-                <h1>
-                    RHMC AttendEase
-                </h1>
-
-                <p>
-                    Teacher Dashboard
-                </p>
-
+                <h1>RHMC AttendEase</h1>
+                <p>Teacher Dashboard</p>
             </div>
-
 
             <a
                 href="{% url 'teacher_logout' %}"
@@ -43,99 +34,118 @@
             </a>
 
         </div>
-
     </div>
-
 
     <div class="container">
 
+        <!-- WELCOME -->
 
         <div class="welcome">
-
-            <h2>
-                Welcome, {{ teacher.name }}
-            </h2>
+            <h2>Welcome, {{ teacher.name }}</h2>
 
             <p>
                 Manage your subjects and monitor student attendance.
             </p>
-
         </div>
 
 
-        <!-- STATISTICS -->
+        <!-- DASHBOARD STATISTICS -->
 
         <div class="stats">
 
-
             <div class="stat-card">
-
-                <h3>
-                    My Subjects
-                </h3>
-
-                <p class="number">
-                    {{ subject_count }}
-                </p>
-
+                <h3>My Subjects</h3>
+                <p class="number">{{ subject_count }}</p>
             </div>
 
-
             <div class="stat-card">
-
-                <h3>
-                    My Students
-                </h3>
-
-                <p class="number">
-                    {{ student_count }}
-                </p>
-
+                <h3>My Students</h3>
+                <p class="number">{{ student_count }}</p>
             </div>
 
-
             <div class="stat-card">
-
-                <h3>
-                    Present Today
-                </h3>
-
-                <p class="number">
-                    {{ present_today }}
-                </p>
-
+                <h3>Present Today</h3>
+                <p class="number">{{ present_today }}</p>
             </div>
 
-
             <div class="stat-card">
-
-                <h3>
-                    Absent Today
-                </h3>
-
-                <p class="number">
-                    {{ absent_today }}
-                </p>
-
+                <h3>Absent Today</h3>
+                <p class="number">{{ absent_today }}</p>
             </div>
-
 
         </div>
 
 
-        <!-- SUBJECTS -->
+        <!-- ATTENDANCE SERVICE SUMMARY -->
+
+        <div class="section service-summary-card">
+
+            <h2>Attendance Service Summary</h2>
+
+            <p>
+                Today's attendance summary processed by the
+                RHMC AttendEase Attendance Service.
+            </p>
+
+            {% if service_summary.http_status == 200 %}
+
+                <p class="service-summary-message">
+                    {{ service_summary.data.message }}
+                </p>
+
+                <div class="stats">
+
+                    <div class="stat-card service-present-card">
+                        <h3>Present</h3>
+
+                        <p class="number">
+                            {{ service_summary.data.present }}
+                        </p>
+                    </div>
+
+                    <div class="stat-card service-absent-card">
+                        <h3>Absent</h3>
+
+                        <p class="number">
+                            {{ service_summary.data.absent }}
+                        </p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>Total Records</h3>
+
+                        <p class="number">
+                            {{ service_summary.data.total }}
+                        </p>
+                    </div>
+
+                </div>
+
+                <p class="service-summary-status">
+                    Connected to Attendance Service
+                </p>
+
+            {% else %}
+
+                <p class="service-summary-error">
+                    The Attendance Service is temporarily unavailable.
+                    Your existing attendance records are not affected.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+
+        <!-- MY SUBJECTS -->
 
         <div class="section">
 
-            <h2>
-                My Subjects
-            </h2>
-
+            <h2>My Subjects</h2>
 
             {% if subjects %}
 
                 <div class="subject-grid">
-
 
                     {% for subject in subjects %}
 
@@ -148,13 +158,10 @@
                                 {{ subject.subject_code }}
                             </div>
 
-                            <h3>
-                                {{ subject.subject_name }}
-                            </h3>
+                            <h3>{{ subject.subject_name }}</h3>
 
                             <p>
-                                Students:
-                                {{ subject.student_count }}
+                                Students: {{ subject.student_count }}
                             </p>
 
                             <p>
@@ -165,21 +172,17 @@
 
                     {% endfor %}
 
-
                 </div>
 
             {% else %}
 
                 <div class="empty">
-
                     <p>
                         No subjects have been assigned to you yet.
                     </p>
-
                 </div>
 
             {% endif %}
-
 
         </div>
 
@@ -188,9 +191,7 @@
 
         <div class="section">
 
-            <h2>
-                Attendance History
-            </h2>
+            <h2>Attendance History</h2>
 
             <p>
                 View attendance records for your assigned subjects.
@@ -210,10 +211,7 @@
 
         <div class="section">
 
-            <h2>
-                Recent Attendance
-            </h2>
-
+            <h2>Recent Attendance</h2>
 
             {% if recent_attendance %}
 
@@ -222,29 +220,13 @@
                     <table>
 
                         <thead>
-
                             <tr>
-
-                                <th>
-                                    Date
-                                </th>
-
-                                <th>
-                                    Student
-                                </th>
-
-                                <th>
-                                    Subject
-                                </th>
-
-                                <th>
-                                    Status
-                                </th>
-
+                                <th>Date</th>
+                                <th>Student</th>
+                                <th>Subject</th>
+                                <th>Status</th>
                             </tr>
-
                         </thead>
-
 
                         <tbody>
 
@@ -297,21 +279,14 @@
             {% else %}
 
                 <div class="empty">
-
-                    <p>
-                        No attendance records yet.
-                    </p>
-
+                    <p>No attendance records yet.</p>
                 </div>
 
             {% endif %}
 
-
         </div>
 
-
     </div>
-
 
 </body>
 

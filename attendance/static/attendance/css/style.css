@@ -4888,3 +4888,72 @@ tbody tr:hover td {
     color: #b91c1c;
     border-color: #fecaca;
 }
+
+
+/* ATTENDANCE SERVICE SUMMARY */
+
+.service-summary-card {
+    border-left: 5px solid #2b6da8;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 28px;
+    box-shadow: 0 8px 24px rgba(31, 78, 121, 0.08);
+}
+
+.service-summary-card h2 {
+    color: #1f4e79;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.service-summary-message {
+    color: #1f4e79;
+    font-weight: 600;
+    margin: 16px 0;
+}
+
+.service-summary-card .stats {
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.service-summary-card .stat-card {
+    min-width: 0;
+}
+
+.service-summary-card .service-present-card {
+    border-left-color: #198754;
+}
+
+.service-summary-card .service-absent-card {
+    border-left-color: #dc3545;
+}
+
+.service-summary-status {
+    display: inline-block;
+    color: #146c43;
+    background: #e8f6ee;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.service-summary-error {
+    color: #842029;
+    background: #fff0f1;
+    border-radius: 10px;
+    padding: 14px 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .service-summary-card {
+        padding: 20px;
+    }
+
+    .service-summary-card .stats {
+        grid-template-columns: 1fr;
+    }
+}

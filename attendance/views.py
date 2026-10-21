@@ -7,7 +7,10 @@ from django.utils import timezone
 from django.db.models import Count
 
 from .forms import SubjectForm, EnrollmentForm, TeacherForm, StudentForm
-from .attendance_service_client import get_service_health
+from .attendance_service_client import (
+    get_service_health,
+    get_attendance_summary,
+)
 
 from .models import (
     Teacher,
@@ -75,8 +78,82 @@ def teacher_login(request):
     return render(request, 'teacher_login.html')
 
 
+
 @login_required
 def teacher_dashboard(request):
+
+    if request.user.is_superuser:
+        return redirect('management_dashboard')
+
+    teacher = get_object_or_404(
+        Teacher,
+        user=request.user
+    )
+
+    subjects = Subject.objects.filter(
+        teacher=teacher
+    ).annotate(
+        student_count=Count(
+            'enrollment__student',
+            distinct=True
+        )
+    ).order_by(
+        'subject_code'
+    )
+
+    subject_count = subjects.count()
+
+    student_count = Student.objects.filter(
+        enrollment__subject__teacher=teacher
+    ).distinct().count()
+
+    today = timezone.localdate()
+
+    present_today = Attendance.objects.filter(
+        subject__teacher=teacher,
+        date=today,
+        status='Present'
+    ).count()
+
+    absent_today = Attendance.objects.filter(
+        subject__teacher=teacher,
+        date=today,
+        status='Absent'
+    ).count()
+
+    recent_attendance = Attendance.objects.filter(
+        subject__teacher=teacher
+    ).select_related(
+        'student',
+        'subject'
+    ).order_by(
+        '-date',
+        '-id'
+    )[:5]
+
+    # Request today's attendance summary from the FastAPI service.
+    service_summary = get_attendance_summary(
+        present_today,
+        absent_today
+    )
+
+    context = {
+        'teacher': teacher,
+        'subjects': subjects,
+        'subject_count': subject_count,
+        'student_count': student_count,
+        'present_today': present_today,
+        'absent_today': absent_today,
+        'recent_attendance': recent_attendance,
+        'service_summary': service_summary,
+    }
+
+    return render(
+        request,
+        'teacher_dashboard.html',
+        context
+    )
+
 
     if request.user.is_superuser:
         return redirect('management_dashboard')
