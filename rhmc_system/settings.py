@@ -74,16 +74,23 @@ WSGI_APPLICATION = 'rhmc_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
 
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv(BASE_DIR / ".env")
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rhmc_attendance',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'rhmc_attendance'),
+        'USER': os.getenv('POSTGRES_USER', 'rhmc_admin'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+        'HOST': '127.0.0.1',
+        'PORT': '5433',
     }
 }
+
 
 
 # Password validation

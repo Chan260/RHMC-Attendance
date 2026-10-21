@@ -27,3 +27,9 @@ staticfiles/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+
+# Database backups and exported data
+backups/
+*.dump
+rhmc_data_backup.json
