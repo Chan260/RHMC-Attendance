@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.db.models import Count
 
 from .forms import SubjectForm, EnrollmentForm, TeacherForm, StudentForm
+from .attendance_service_client import get_service_health
 
 from .models import (
     Teacher,
@@ -16,6 +17,15 @@ from .models import (
     Attendance
 )
 
+@login_required
+def attendance_service_status(request):
+    result = get_service_health()
+
+    return render(
+        request,
+        'attendance_service_status.html',
+        {'service_result': result}
+    )
 
 def teacher_login(request):
 

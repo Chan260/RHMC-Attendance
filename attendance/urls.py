@@ -5,6 +5,12 @@ from . import views
 urlpatterns = [
 
     path(
+        'attendance-service/status/',
+        views.attendance_service_status,
+        name='attendance_service_status'
+    ),
+
+    path(
         'teacher/login/',
         views.teacher_login,
         name='teacher_login'

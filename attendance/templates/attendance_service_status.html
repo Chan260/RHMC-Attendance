@@ -1,0 +1,110 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Service Status - RHMC AttendEase</title>
+    <link rel="stylesheet" href="{% static 'attendance/css/attendance_service_status.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 30px 16px;
+            background: #f4f7fb;
+            font-family: Arial, sans-serif;
+            color: #243247;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 40px auto;
+        }
+
+        .card {
+            background: #fff;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 6px 24px rgba(31, 78, 121, 0.10);
+        }
+
+        h1 {
+            color: #1f4e79;
+            margin-top: 0;
+        }
+
+        .status {
+            padding: 16px;
+            border-radius: 10px;
+            margin: 24px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .healthy {
+            background: #e8f7ee;
+            color: #176b3a;
+        }
+
+        .unavailable {
+            background: #fdecec;
+            color: #a12626;
+        }
+
+        .button {
+            display: inline-block;
+            background: #1f4e79;
+            color: white;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 9px;
+            margin-top: 12px;
+        }
+
+        .button:hover {
+            background: #163a5b;
+        }
+
+        .detail {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="service-container">
+        <section class="service-card">
+            <h1>Attendance Service Status</h1>
+            <p>RHMC AttendEase microservice connection check.</p>
+
+            {% if service_result.http_status == 200 %}
+                <div class="service-status service-healthy">
+                    <strong>Service is healthy</strong>
+                    <p class="service-detail">
+                        Service: {{ service_result.data.service }}
+                    </p>
+                    <p class="service-detail">
+                        Status: {{ service_result.data.status }}
+                    </p>
+                    <p class="service-detail">
+                        HTTP Status: {{ service_result.http_status }}
+                    </p>
+                </div>
+            {% else %}
+                <div class="service-status service-unavailable">
+                    <strong>Service is unavailable or returned an error</strong>
+                    <p class="service-detail">
+                        HTTP Status:
+                        {{ service_result.http_status|default:"No response" }}
+                    </p>
+                    <p class="service-detail">
+                        {{ service_result.error|default:"Please check the service configuration." }}
+                    </p>
+                </div>
+            {% endif %}
+
+            <a class="service-button" href="{% url 'teacher_dashboard' %}">
+                Back to Teacher Dashboard
+            </a>
+        </section>
+    </main>
+</body>
+</html>
